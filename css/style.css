@@ -1,0 +1,458 @@
+@charset "utf-8";
+* {
+    /* 全要素の余白をリセット */
+    padding: 0;
+    margin: 0;
+}
+
+/************************** 
+  ページ全体 
+ **************************/
+
+body {
+    background-image: url(../image/background.jpg);
+    background-position-x: center;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+}
+
+body#menu {
+    background-image: url(../image/background-menu.jpg);
+}
+
+div.container {
+    /* 中央寄せ */
+    max-width: 1020px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.top {
+    /* フッターを下部に固定 */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* スマホ対応 */
+
+/* メモ(20210129確認)：
+  別にスマホサイズだからといって背景画像を変更する必要はない。
+  コメントアウトする
+@media screen and (max-width:375px) {
+    body {
+        background-image: url(../image/background-sp.jpg);
+    }
+} */
+
+/**************************************************** 
+  ヘッダー部 
+ ****************************************************/
+
+header {
+    margin: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+}
+
+/* サイト名、ロゴ*/
+
+header .site-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .site-logo img {
+    margin-top: 13px;
+}
+
+header .site-logo h1 {
+    font-size: 52px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+
+/* ナビ */
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+header a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header a:hover {
+    /* text-decoration: underline; */
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.7));
+}
+
+/* ヘッダー部：小画面対応 */
+
+@media screen and (max-width:785px) {
+    header {
+        flex-direction: column;
+        margin-top: 0px;
+    }
+    header .site-logo img {
+        width: 71px;
+    }
+    header .site-logo h1 {
+        font-size: 38px;
+    }
+    header nav {
+        margin-top: 10px;
+    }
+    header nav ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    header nav li {
+        margin: 0px 10px;
+    }
+}
+
+/**************************************************** 
+  メイン部 
+ ****************************************************/
+
+main {
+    text-align: center;
+    padding-top: 230px;
+    padding-bottom: 230px;
+}
+
+#news main {
+    padding: 20px 0px;
+}
+
+#menu main {
+    padding: 140px 0px 100px 0px;
+}
+
+main h2 {
+    margin-bottom: 10px;
+    font-size: 80px;
+    font-weight: 400;
+    /* Google webフォント：Philosopher */
+    font-family: 'Philosopher', sans-serif;
+    filter: drop-shadow(1px 2px 7px rgba(85, 42, 26, 0.4));
+}
+
+main .welcome-text {
+    font-size: 18px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bolder;
+    filter: drop-shadow(1px 2px 7px rgba(85, 42, 26, 0.4));
+    margin-bottom: 45px;
+}
+
+main .menu-btn {
+    /* ボタンデザイン */
+    border: 0px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #3ebbdd;
+    margin: 35px;
+    padding: 15px 40px;
+    filter: drop-shadow(3px 6px 3px rgba(15, 71, 88, 0.65));
+    text-decoration: none;
+    /* フォント */
+    font-size: 20px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+}
+main .menu-btn:hover{
+    background-color: #48d7ff;
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.65));
+}
+
+/* NEWS画面 */
+
+.news-blog {
+    margin-top: 50px;
+    background-color: #ffffff;
+}
+
+#news main .container {
+    color: #333333;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    font-size: 16px;
+}
+
+#news main .content {
+    width: calc(100% - 240px);
+    padding: 10px;
+}
+
+#news main .sidebar {
+    width: 240px;
+    padding: 10px;
+}
+
+/* 記事ヘッダー部 */
+
+.content-header {
+    display: flex;
+    align-items: center;
+    margin: 30px 0px;
+}
+
+/* 記事ヘッダー部：記事日付 */
+
+.content-header .date {
+    min-width: 100px;
+    min-height: 100px;
+    width: 100px;
+    height: 100px;
+    background-color: #00bbdd;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.content-header .date .day {
+    font-size: 23px;
+    border-bottom: 1px solid #ffffff;
+    margin-top: 20px
+}
+
+.content-header .content-info {
+    padding: 10px 20px;
+}
+
+.content-header .article-title {
+    font-family: "源ノ明朝";
+    font-size: 32px;
+}
+
+.content-header .meta {
+    padding-top: 10px;
+}
+
+.content-header .meta a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.content-header .meta a:hover {
+    text-decoration: underline;
+}
+
+/* 記事メイン部 */
+.content-main img {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.content-main p {
+    line-height: 1.85em;
+    margin: 20px 0px;
+}
+
+/* ニュース画面：サイドバー */
+
+.sidebar section {
+    margin: 60px 0px;
+}
+
+.sidebar h3 {
+    font-size: 23px;
+    font-weight: normal;
+    border-bottom: 2px solid #00bbdd;
+    padding: 5px 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    border-bottom: 2px solid #dddddd;
+    padding: 15px 10px;
+}
+
+.sidebar li a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.sidebar li a:hover {
+    text-decoration: underline;
+}
+
+.sidebar .text p {
+    line-height: 1.8em;
+    padding: 15px 5px;
+}
+
+/* メイン部：メニュー画面 */
+
+#menu .description {
+    max-width: 735px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 10px 90px 10px;
+    font-size: 16px;
+    line-height: 1.8em;
+    text-align: left;
+    font-weight: 100;
+}
+
+#menu main .menu-content {
+    background-color: #ffffff;
+    color: #333333;
+    padding-top: 40px;
+}
+
+#menu main .container {
+    color: #333333;
+    text-align: left;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* border:1px solid blue; */
+}
+
+#menu .menu-item {
+    padding: 0px;
+    max-width: 338px;
+    min-width: 190px;
+    width: 33%;
+    /* border: 1px solid red; */
+}
+
+#menu .menu-item figure {
+    margin: 10px 20px 50px 20px;
+}
+
+#menu .menu-item img {
+    width: 100%;
+}
+
+/* メイン部：小画面対応 */
+
+@media screen and (max-width:785px) {
+    main {
+        padding-top: 130px;
+        padding-bottom: 100px;
+    }
+    main h2 {
+        font-size: 46px;
+        margin-bottom: 20px;
+        line-height: 1.3em;
+    }
+    main .welcome-text {
+        padding: 0px 20px;
+        line-height: 1.7em;
+        margin-bottom: 90px;
+    }
+    main .menu-btn {
+        margin-top: 75px;
+    }
+    /* ニュース画面 */
+    .news-blog {
+        margin-top: 65px;
+    }
+    #news main .container {
+        flex-direction: column;
+    }
+    #news main .content, #news main .sidebar {
+        width: 95%;
+    }
+    /* 投稿コンテンツヘッダ */
+    .content-header {
+        margin: 10px 0px;
+        align-items: flex-start;
+    }
+    .content-header .date {
+        min-width: 70px;
+        min-height: 70px;
+        width: 70px;
+        height: 70px;
+    }
+    .content-header .date .day {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+    .content-header .date .year {
+        font-size: 16px;
+    }
+    .content-header .article-title {
+        font-size: 22px;
+    }
+    /* 投稿コンテンツ:画像 */
+    .content-main img {
+        margin-bottom: 0px;
+    }
+    /* メニュー画面 */
+    #menu main {
+        padding: 20px 0px;
+    }
+    #menu .description {
+        padding: 30px 15px 78px 15px;
+        font-size: 15px;
+        line-height: 2em;
+    }
+    #menu .menu-item figure {
+        margin: 15px 10px 25px 10px;
+    }
+    /* body{
+        border:1px solid red;
+    } */
+ 
+}
+   
+@media screen and (max-width:600px) {
+    #menu .menu-item {
+        width: 50%;
+        min-width:120px;
+    }
+}
+@media screen and (max-width:250px) {
+    #menu .menu-item {
+        width: 100%;
+    }
+}
+/**************************************************** 
+  フッター部 
+ ****************************************************/
+
+footer {
+    margin-top: auto;
+    text-align: center;
+}
+
+footer .copyright {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    filter: drop-shadow(1px 2px 7px rgba(85, 42, 26, 0.4));
+}
+
+#news footer, #menu footer {
+    background-color: #443322;
+    padding: 10px;
+}
